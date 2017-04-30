@@ -13,7 +13,7 @@ namespace RowsGenerator;
 abstract class AbstractRowsGenerator implements RowsGeneratorInterface
 {
     protected $array;
-    protected $page;
+    protected $page; // page set by the user
     protected $nipp;
     protected $sortValues;
     protected $searchItems;

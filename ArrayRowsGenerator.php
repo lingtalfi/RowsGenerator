@@ -12,6 +12,8 @@ namespace RowsGenerator;
  */
 class ArrayRowsGenerator extends AbstractRowsGenerator
 {
+    private $realPage;
+
     public function getRows()
     {
         $rows = [];
@@ -119,13 +121,23 @@ class ArrayRowsGenerator extends AbstractRowsGenerator
             if ($page > $maxPage) {
                 $page = $maxPage;
             }
+            $this->realPage = $page;
             $offset = ($page - 1) * $this->nipp;
             $rows = array_slice($rows, $offset, $this->nipp);
+        } else {
+            $this->realPage = 1;
         }
 
 
         return $rows;
     }
+
+    public function getPage()
+    {
+        return $this->realPage;
+    }
+
+
 
     //--------------------------------------------
     //

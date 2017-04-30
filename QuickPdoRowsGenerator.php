@@ -99,6 +99,7 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
     private $query;
     private $markers;
     private $onErrorCallback;
+    private $realPage;
 
 
     public function __construct()
@@ -273,8 +274,11 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
                 if ($page > $maxPage) {
                     $page = $maxPage;
                 }
+                $this->realPage = $page;
                 $offset = ($page - 1) * $this->nipp;
                 $limitTail .= " limit $offset, " . $this->nipp;
+            } else {
+                $this->realPage = 1;
             }
 
             $rowsQuery = $this->getQuery($this->fields) . $searchTail . $sortTail . $limitTail;
@@ -286,7 +290,16 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
         }
     }
 
+    public function getPage()
+    {
+        return $this->realPage;
+    }
 
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     protected function doError($msg)
     {
         if (null === $this->onErrorCallback) {

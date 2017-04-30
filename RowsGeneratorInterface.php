@@ -6,7 +6,7 @@ namespace RowsGenerator;
 
 /**
  * The goal of this class is to return the rows shaped by the user,
- * and also the total number of items.
+ * and also the total number of items, and the real current page number (as the user might go over boundaries).
  *
  *
  * The user can manipulate (usually via a gui) the returned rows using the following means:
@@ -87,4 +87,9 @@ interface RowsGeneratorInterface
      * The getRows method must be called first.
      */
     public function getNbTotalItems();
+
+    /**
+     * The getRows method must be called first.
+     */
+    public function getPage();
 }
