@@ -128,6 +128,10 @@ a(QuickPdoRowsGenerator::create()
 History Log
 ------------------
     
+- 1.2.2 -- 2017-05-01
+
+    - fix ArrayRowsGenerator
+    
 - 1.2.1 -- 2017-05-01
 
     - fix RowsTransformerUtil

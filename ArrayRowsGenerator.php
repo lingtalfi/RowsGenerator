@@ -29,6 +29,11 @@ class ArrayRowsGenerator extends AbstractRowsGenerator
 
                 foreach ($this->searchItems as $col => $value) {
 
+                    // some extra columns might not be searchable
+                    if (false === array_key_exists($col, $row)) {
+                        continue;
+                    }
+
 
                     // searchExpression
                     if (is_string($value) || is_numeric($value)) {
@@ -157,7 +162,14 @@ class ArrayRowsGenerator extends AbstractRowsGenerator
     private function make_cmp(array $sortValues)
     {
         return function ($a, $b) use (&$sortValues) {
+
+
             foreach ($sortValues as $column => $sortDir) {
+
+                // skip "forgotten" unsearchable columns
+                if (false === array_key_exists($column, $a)) {
+                    continue;
+                }
                 $diff = strcmp($a[$column], $b[$column]);
                 if ($diff !== 0) {
                     if ('asc' === $sortDir) {
