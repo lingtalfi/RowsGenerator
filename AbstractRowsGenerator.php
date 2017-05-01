@@ -30,6 +30,7 @@ abstract class AbstractRowsGenerator implements RowsGeneratorInterface
         $this->searchItems = [];
     }
 
+
     public static function create()
     {
         return new static();
@@ -64,6 +65,5 @@ abstract class AbstractRowsGenerator implements RowsGeneratorInterface
     {
         return $this->nbTotalItems;
     }
-
 
 }

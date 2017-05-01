@@ -29,6 +29,7 @@ class ArrayRowsGenerator extends AbstractRowsGenerator
 
                 foreach ($this->searchItems as $col => $value) {
 
+
                     // searchExpression
                     if (is_string($value) || is_numeric($value)) {
                         $value = (string)$value;
