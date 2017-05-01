@@ -36,9 +36,11 @@ class RowsTransformerUtil
                     $v = $row[$columnId];
                 }
                 if (array_key_exists($columnId, $transformers)) {
-                    call_user_func($transformers[$columnId], $v, $columnId, $row);
+                    $v = call_user_func($transformers[$columnId], $v, $columnId, $row);
                 }
+                $row[$columnId] = $v;
             }
+            $ret[] = $row;
         }
         return $ret;
     }
