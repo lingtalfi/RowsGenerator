@@ -128,6 +128,10 @@ a(QuickPdoRowsGenerator::create()
 History Log
 ------------------
     
+- 1.2.3 -- 2017-05-02
+
+    - fix QuickPdoRowsGenerator, getAliasNames and getFunctionalNames bug
+    
 - 1.2.2 -- 2017-05-01
 
     - fix ArrayRowsGenerator
