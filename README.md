@@ -128,6 +128,10 @@ a(QuickPdoRowsGenerator::create()
 History Log
 ------------------
     
+- 1.2.4 -- 2017-05-09
+
+    - fix QuickPdoRowsGenerator maxPage=0
+    
 - 1.2.3 -- 2017-05-02
 
     - fix QuickPdoRowsGenerator, getAliasNames and getFunctionalNames bug

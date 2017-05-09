@@ -267,10 +267,16 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
             $limitTail = "";
             if ('all' !== $this->nipp) {
                 $page = $this->page;
-                if ($page < 1) {
+                if ($page <= 1) {
                     $page = 1;
                 }
                 $maxPage = ceil($this->nbTotalItems / $this->nipp);
+
+                if (0 === (int)$maxPage) {
+                    $this->realPage = 1;
+                    return [];
+                }
+
                 if ($page > $maxPage) {
                     $page = $maxPage;
                 }
