@@ -1,25 +1,27 @@
 <?php
 
 
-
 namespace RowsGenerator\Util;
 
-class QuickPdoRowsGeneratorUtil{
+class QuickPdoRowsGeneratorUtil
+{
 
     public static function getAliasNames($fields)
     {
         $fields = trim($fields);
         $aFields = preg_split('!,\s*\n!', $fields);
-        return array_map(function ($v) {
-            $p = explode('.', $v);
-            $val = trim(array_pop($p));
-            $p = preg_split('/\s+/', $val);
-            $val = array_pop($p);
-            return str_replace('`', '', trim($val));
-        }, $aFields);
+
+        $tmp = [];
+        foreach ($aFields as $field) {
+            $p = preg_split('!\s+as\s+!', $field);
+            $f = array_pop($p);
+            $tmp[] = trim(str_replace('`', '', $f));
+        }
+
+        return $tmp;
     }
 
-    public static  function getFunctionalNames($fields)
+    public static function getFunctionalNames($fields)
     {
         $aFields = preg_split('!,\s*\n!', $fields);
         $ret = array_map(function ($v) {
