@@ -5,6 +5,7 @@ namespace RowsGenerator;
 
 use QuickPdo\QuickPdo;
 use RowsGenerator\Exception\RowsGeneratorException;
+use RowsGenerator\Util\QuickPdoRowsGeneratorUtil;
 
 /**
  * This rowGenerator implements only two kinds of searchItems:
@@ -129,9 +130,7 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
 
     public function getRows()
     {
-
         if (false !== ($alias2Functional = $this->getAliasToFunctionalNames($this->fields))) {
-
 
             $searchTail = "";
             //--------------------------------------------
@@ -327,8 +326,8 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
 
     private function getAliasToFunctionalNames($fields)
     {
-        $aliasNames = $this->getAliasNames($fields);
-        $functionalNames = $this->getFunctionalNames($fields);
+        $aliasNames = QuickPdoRowsGeneratorUtil::getAliasNames($fields);
+        $functionalNames = QuickPdoRowsGeneratorUtil::getFunctionalNames($fields);
         if (count($aliasNames) === count($functionalNames)) {
             return array_combine($aliasNames, $functionalNames);
         } else {
@@ -337,36 +336,6 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
         }
     }
 
-    private function getAliasNames($fields)
-    {
-        $fields = trim($fields);
-        $aFields = preg_split('!,\s*\n!', $fields);
-        return array_map(function ($v) {
-            $p = explode('.', $v);
-            $val = trim(array_pop($p));
-            $p = preg_split('/\s+/', $val);
-            $val = array_pop($p);
-            return str_replace('`', '', trim($val));
-        }, $aFields);
-    }
-
-    private function getFunctionalNames($fields)
-    {
-        $aFields = preg_split('!,\s*\n!', $fields);
-        $ret = array_map(function ($v) {
-            $v = trim($v);
-            $p = preg_split('/\s+/', $v);
-            $v = array_shift($p);
-            return $v;
-        }, $aFields);
-        $ret = array_filter($ret, function ($v) {
-            if ('(' === substr($v, 0, 1)) {
-                return false;
-            }
-            return true;
-        });
-        return $ret;
-    }
 
 
     private function error($msg)
