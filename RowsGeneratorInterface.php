@@ -92,4 +92,15 @@ interface RowsGeneratorInterface
      * The getRows method must be called first.
      */
     public function getPage();
+
+
+    /**
+     * The getRows method must be called first.
+     */
+    public function getSortValues();
+
+    /**
+     * The getRows method must be called first.
+     */
+    public function getSearchItems();
 }

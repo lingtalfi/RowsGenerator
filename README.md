@@ -128,6 +128,10 @@ a(QuickPdoRowsGenerator::create()
 History Log
 ------------------
     
+- 1.3.0 -- 2017-06-19
+
+    - add RowsGeneratorInterface.getSortValues and getSearchItems
+    
 - 1.2.5 -- 2017-05-18
 
     - fix QuickPdoRowsGeneratorUtil.getAliasNames

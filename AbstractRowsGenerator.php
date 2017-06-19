@@ -66,4 +66,15 @@ abstract class AbstractRowsGenerator implements RowsGeneratorInterface
         return $this->nbTotalItems;
     }
 
+    public function getSortValues()
+    {
+        return $this->sortValues;
+    }
+
+    public function getSearchItems()
+    {
+        return $this->searchItems;
+    }
+
+
 }
