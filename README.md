@@ -128,6 +128,10 @@ a(QuickPdoRowsGenerator::create()
 History Log
 ------------------
     
+- 1.4.0 -- 2017-06-19
+
+    - add RowsGeneratorInterface.getNbItemsPerPage
+    
 - 1.3.0 -- 2017-06-19
 
     - add RowsGeneratorInterface.getSortValues and getSearchItems

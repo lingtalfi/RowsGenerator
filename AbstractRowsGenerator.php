@@ -76,5 +76,10 @@ abstract class AbstractRowsGenerator implements RowsGeneratorInterface
         return $this->searchItems;
     }
 
+    public function getNbItemsPerPage()
+    {
+        return $this->nipp;
+    }
+
 
 }

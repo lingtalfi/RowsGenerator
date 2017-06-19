@@ -88,6 +88,7 @@ interface RowsGeneratorInterface
      */
     public function getNbTotalItems();
 
+
     /**
      * The getRows method must be called first.
      */
@@ -103,4 +104,7 @@ interface RowsGeneratorInterface
      * The getRows method must be called first.
      */
     public function getSearchItems();
+
+
+    public function getNbItemsPerPage();
 }
