@@ -128,6 +128,10 @@ a(QuickPdoRowsGenerator::create()
 History Log
 ------------------
     
+- 1.5.0 -- 2017-06-22
+
+    - ArrayRowsGenerator fix sort comparison function
+    
 - 1.4.0 -- 2017-06-19
 
     - add RowsGeneratorInterface.getNbItemsPerPage

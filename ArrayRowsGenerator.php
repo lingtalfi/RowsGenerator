@@ -3,6 +3,7 @@
 
 namespace RowsGenerator;
 
+
 /**
  * This rowGenerator implements the three kinds of searchItems:
  * - searchExpression
@@ -105,6 +106,8 @@ class ArrayRowsGenerator extends AbstractRowsGenerator
         // SORTING
         //--------------------------------------------
         if (count($this->sortValues) > 0) {
+            a("oo");
+            a($this->sortValues);
             usort($rows, $this->make_cmp($this->sortValues));
         }
 
@@ -170,12 +173,22 @@ class ArrayRowsGenerator extends AbstractRowsGenerator
                 if (false === array_key_exists($column, $a)) {
                     continue;
                 }
-                $diff = strcmp($a[$column], $b[$column]);
-                if ($diff !== 0) {
+
+                if (is_string($a[$column])) {
+                    $diff = strcmp($a[$column], $b[$column]);
+                    if ($diff !== 0) {
+                        if ('asc' === $sortDir) {
+                            return $diff;
+                        }
+                        return $diff * -1;
+                    }
+                } else { // float, int
+                    $diff = ($a[$column] > $b[$column]);
                     if ('asc' === $sortDir) {
                         return $diff;
+                    } else {
+                        return !$diff;
                     }
-                    return $diff * -1;
                 }
             }
             return 0;
