@@ -106,8 +106,6 @@ class ArrayRowsGenerator extends AbstractRowsGenerator
         // SORTING
         //--------------------------------------------
         if (count($this->sortValues) > 0) {
-            a("oo");
-            a($this->sortValues);
             usort($rows, $this->make_cmp($this->sortValues));
         }
 
