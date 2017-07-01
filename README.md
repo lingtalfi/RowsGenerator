@@ -124,6 +124,11 @@ a(QuickPdoRowsGenerator::create()
 
 
 
+Related
+=============
+- https://github.com/lingtalfi/RowsGeneratorWidget
+
+
 
 History Log
 ------------------
