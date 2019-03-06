@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RowsGenerator\Exception;
+namespace Ling\RowsGenerator\Exception;
 
 class RowsGeneratorException extends \Exception
 {

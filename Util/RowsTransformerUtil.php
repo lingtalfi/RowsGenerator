@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RowsGenerator\Util;
+namespace Ling\RowsGenerator\Util;
 
 
 class RowsTransformerUtil

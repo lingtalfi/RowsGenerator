@@ -1,11 +1,11 @@
 <?php
 
 
-namespace RowsGenerator;
+namespace Ling\RowsGenerator;
 
-use QuickPdo\QuickPdo;
-use RowsGenerator\Exception\RowsGeneratorException;
-use RowsGenerator\Util\QuickPdoRowsGeneratorUtil;
+use Ling\QuickPdo\QuickPdo;
+use Ling\RowsGenerator\Exception\RowsGeneratorException;
+use Ling\RowsGenerator\Util\QuickPdoRowsGeneratorUtil;
 
 /**
  * This rowGenerator implements only two kinds of searchItems:

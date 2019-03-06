@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RowsGenerator;
+namespace Ling\RowsGenerator;
 
 /**
  * This rowGenerator implements the three kinds of searchItems:

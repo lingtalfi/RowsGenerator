@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RowsGenerator;
+namespace Ling\RowsGenerator;
 
 
 /**
