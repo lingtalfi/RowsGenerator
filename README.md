@@ -132,7 +132,11 @@ Related
 
 History Log
 ------------------
-    
+
+- 1.6.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.6.0 -- 2018-06-11
 
     - add QuickPdoRowsGenerator.doGetNbTotalItems protected method
